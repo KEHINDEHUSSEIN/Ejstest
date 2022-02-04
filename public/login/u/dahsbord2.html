@@ -1,0 +1,541 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http: //www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="ROBOTS" content="ALL">
+<meta name="Engine" content="all">
+<meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image-png" href="all-images/images/icon.png" />
+
+<link href="awesome-font/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
+<link href="style/animate.css" rel="stylesheet" type="text/css" media="all">
+<link href="style/aos.css" type="text/css" rel="stylesheet" />
+<link href="style/scrollbar.css" type="text/css" rel="stylesheet" />
+<link href="style/main-style.css" type="text/css" rel="stylesheet" />
+<link href="style/nav-style.css" type="text/css" rel="stylesheet" />
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery.backstretch.min.js"></script>
+
+<script>
+var api_url='http://104.248.131.51:3000';
+var project_password = 'ddp_pass';
+//var api_url='http://18.216.34.0:5349';
+var register_url=api_url+'/client/register';
+var verifyEmail_url=api_url+'/client/verifyEmail';
+var resentOTP_url=api_url+'/client/resentOTP';
+var login_url=api_url+'/client/login';
+var getProfile_url=api_url+'/client/getProfile';
+
+var setCollectionData_url=api_url+'/client/setCollectionData';
+var getAllMomo_url=api_url+'/client/getAllMomo';
+var getAllBank_url=api_url+'/client/getAllBank';
+var verifyAccountNumber_url=api_url+'/transaction/verifyAccountNumber?';
+var getWalletBalance_url=api_url+'/client/getWalletBalance';
+var getCollectionData_url=api_url+'/client/getCollectionData';
+var editProfile_url=api_url+'/client/editProfile';
+var getLiveKey_url=api_url+'/client/getLiveKey';
+var getDemoKey_url=api_url+'/client/getDemoKey';
+var refreshLiveKey_url=api_url+'/client/refreshLiveKey';
+
+
+var disburseBankTransaction_url=api_url+'/requestToPay/bankTransaction';
+var disburseMomoTransaction_url=api_url+'/requestToPay/momoTransaction';
+
+var getDisbursementSortTransactions_url=api_url+'/client/getDisbursementSortTransactions';
+var getDisbursementTransactionByReferrence_url=api_url+'/client/getDisbursementTransactionByReferrence';
+var getCollectionSortTransactions_url=api_url+'/client/getCollectionSortTransactions';
+var getCollectionTransactionByReferrence_url=api_url+'/client/getCollectionTransactionByReferrence';
+
+var countCollections_url=api_url+'/client/countCollections';
+var countCollectionsPerDays_url=api_url+'/client/countCollectionsPerDays';
+
+
+var suspendAccount_url=api_url+'/client/suspendAccount';
+var activateAccount_url=api_url+'/client/activateAccount';
+
+var local_url='config/code.php';
+</script>
+
+
+<script src="js/scripts.js"></script>
+
+<script type="text/javascript" src="js/digitalclock.js"></script> 
+
+<script src="js/jquery.datetimepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="style/jquery.datetimepicker.css"/>
+
+<script type="text/javascript" src="js/canvasjs.min.js"></script>
+
+<meta property="og:type" content="Website" />
+
+
+
+<title>Administrator Portal | DDP - Dilaac Digital Payment Service</title>
+</head>
+<body>
+<div class="success-div animated bounceInDown animated animated" id="success-div">
+<div><i class="fa fa-check"></i></div> 
+Password Reset Successfuly<br /> 
+<span>Check your email to confirm.</span>
+</div>
+
+
+<div class="success-div animated bounceInDown animated animated" id="not-success-div">
+<div><i class="fa fa-close"></i></div> 
+Invalid Username Or Password<br /> 
+<span>Please check the login detail.</span>
+</div>
+
+
+<div class="success-div animated bounceInDown animated animated" id="warning-div">
+<div><i class="fa fa-warning (alias)"></i></div> 
+Fill The Fields To Continue<br /> 
+</div>
+
+
+
+<!--the side bar empty space div-->
+<div class="side-nav-bg-div" id="menu-back-div"><div class="side-nav-bg-div-in" onclick="_close_menu()"></div></div>
+
+
+
+<div id="get-more-div"></div>
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+<div class="header-div animated fadeInDown animated animated">
+	<div class="header-div-in">
+        <div class="menu-div" title="Open Menu" onclick="_open_menu()" id="menu-div"><i class="fa fa-navicon (alias)"></i></div>
+    	<div class="logo-div"><img src="all-images/images/logo.png" alt="Dilaac logo" /></div>
+        
+        <div class="header-nav-div" data-aos="fade-right" data-aos-duration="1500">
+        <li class="active-li" id="sdashboard"  onClick="_get_page('dashboard', 'dashboard')"><i class="fa fa-dashboard"></i> Dashboard</li>
+        <li id="sprojects" onClick="_get_page('projects', 'projects')"><i class="fa fa-th-large"></i> My Projects <div>0</div></li>
+        </div>
+        
+        
+            <div class="header-profile-pix-div"
+            title="User Account
+            MIKE AFOLABI 
+            User ID: DDP000" onclick="_toggle_profile_pix_div()">
+            <img src="../sa/uploaded_files/client_passport/202108280413_IMG_20151121_130628 copyjpg20180201010648pm.jpg" id="passportimg1"/>
+            
+            <div class="toggle-profile-div">
+            <div class="toggle-profile-pix-div">
+            <img src="../sa/uploaded_files/client_passport/202108280413_IMG_20151121_130628 copyjpg20180201010648pm.jpg" id="passportimg2"/>
+            </div>
+            
+            <div class="toggle-profile-name">MIKE AFOLABI </div>
+            <div class="toggle-profile-others">User ID: DDP000 <br />08131252996 </div>
+            <form method="post" action="config/code" name="logoutform">
+            <input type="hidden" name="action" value="logout"/>
+            <button class="logout-btn" type="submit"><i class="fa fa-sign-out"></i> Log-Out</button>
+            </form>
+            <button class="logout-btn" type="button" onclick="_get_users_profile('DDP000','myprofile');"><i class="fa fa-user"></i> Profile</button>
+                    <div class="hidden" id="_myprofile"><i class="fa fa-user-circle"></i> Merchant Profile</div>
+            <br clear="all" />
+            </div>
+            </div>
+            
+            
+            
+            
+            
+            <div class="notification" onClick="_get_page('system_alert', 'system_alert')">
+            <i class="fa fa-bell-o"></i>
+            </div>
+            <!------>
+            <span id="_system_alert" style="display:none;"><i class="fa fa-bell-o"></i> System Alert</span>
+            <!------>  
+            
+                        
+       </div>
+</div><div class="side-nav-div animated fadeInLeft animated animated">
+	<div class="nav-div active-li" onClick="_get_page('dashboard', 'dashboard')" id="dashboard">
+    	<div class="icon"><i class="fa fa-dashboard"></i></div> Dashboard
+        <div class="hidden" id="_dashboard"><i class="fa fa-dashboard"></i> Admin Dashboard</div>
+    </div>
+    
+	<div class="nav-div" onClick="_get_page('projects', 'projects')" id="projects">
+    	<div class="icon" ><i class="fa fa-th-large"></i></div> My Projects
+        <div class="hidden" id="_projects"><i class="fa fa-th-large"></i> My Projects</div>
+    </div>
+    
+	<div class="nav-div" onClick="_get_page('collections', 'collections')" id="collections">
+    	<div class="icon"><i class="fa fa-list-ul"></i></div> Collections
+        <div class="hidden" id="_collections"><i class="fa fa-list-ul"></i> DDP Collections</div>
+    </div>
+    
+	<div class="nav-div" onClick="_get_page('payout', 'payout')" id="payout">
+    	<div class="icon"><i class="fa fa-money"></i></div> PayOut
+        <div class="hidden" id="_payout"><i class="fa fa-money"></i> DDP PayOut</div>
+    </div>
+	<div class="nav-div" onClick="_get_page('paymentlink', 'paymentlink')" id="paymentlink">
+    	<div class="icon"><i class="fa fa-money"></i></div> Payment Link
+        <div class="hidden" id="_paymentlink"><i class="fa fa-money"></i> DDP paymentlink</div>
+    </div>
+    
+<!--
+	<div class="nav-div">
+    	<div class="icon"><i class="fa fa-exchange"></i></div> Transfer
+    </div>
+-->    
+
+	<div class="nav-div" onClick="_get_form('get_project_settings_form')">
+    	<div class="icon"><i class="fa fa-gear (alias)"></i></div> Settings
+    </div>
+<form method="post" action="config/code.php" id="logoutform">
+<input type="hidden" name="action" value="logout"/>    
+	<div class="nav-div" onclick="document.getElementById('logoutform').submit();">
+    	<div class="icon"><i class="fa fa-power-off"></i></div> Log-Out
+    </div>
+</form>
+</div>
+<div class="content-div">
+            <div class="page-title-div dashbord-title animated fadeInDown animated animated">
+            <div class="div-in">
+                <div class="left-div">
+                    <span id="page-title"><i class="fa fa-dashboard"></i> Admin Dashboard</span><br />
+                    <div class="project-name" id="project-title-div"></div>
+                </div>
+                <div class="right-div">
+                    Current Time<br />
+                                            <div class="datetime">
+                         <span id="clock"><span id="digitalclock" class="styling"></span></span>
+                        </div>
+		                    Monday, 03 January 2022                </div>
+            </div>
+            </div>
+            
+	    <div id="page-content">
+		        
+
+	        
+            <div class="get-started-div animated zoomIn animated animated">
+                <div class="div-in">
+                    <div class="text">
+                        <div class="img"><img src="all-images/images/warning.gif" alt="warning" /></div>
+                        No project found!
+                    </div>
+                     <div class="alert"> Kindly create a new project to get started.</div>
+                        <button class="btn" title="Create A New Project" onClick="_get_form('create-project-form')">Create A New Project</button>
+                </div>
+            </div>
+                
+
+
+<script type="text/javascript" src="js/scrollBar.js"></script>
+<script type="text/javascript">$(".sb-container").scrollBox();</script>
+    <script src="js/aos.js"></script>
+    <script>
+      AOS.init({
+        easing: 'ease-in-out-sine'
+      });
+    </script>
+    </div>
+
+      
+      <div class="side-div-right animated fadeInRight animated animated">
+            <div class="matrix-div" data-aos="fade-left" data-aos-duration="2000">
+                <div class="matrix-in">
+                    <div class="matrix-title">Welcome Back!</div> <div class="text"><span>Mike Afolabi</span></div>
+                </div>
+            </div>
+            
+            <div class="matrix-div" data-aos="fade-left" data-aos-duration="1600">
+                <div class="matrix-in">
+                    <div class="matrix-title">Available Balance</div> 
+                                    <div class="alert"><span><i class="fa fa-warning"></i></span> Wallet Empty!</div>
+                                        
+                    <button class="btn" onClick="_get_form('request_for_payout_form')">Request For PayOut</button>
+                    <button class="btn active" onClick="_get_form('get_service_charge_form')" title="SERVICE CHARGES">Charges</button>
+                    
+                </div>
+            </div>
+          
+            <div class="matrix-div animated zoomIn animated animated">
+                <div class="matrix-in">
+                    <div class="matrix-title">Transaction Matrix</div> 
+                    <div id="chart-for-pie">
+                                    <div class="alert"><span><i class="fa fa-warning"></i></span> Matrix Empty!</div>
+                                        </div>
+                </div>
+            </div>
+            
+      </div>
+      
+            
+
+</div>
+
+
+
+
+</body>
+</html>
